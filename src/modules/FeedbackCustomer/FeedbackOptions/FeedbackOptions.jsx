@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import css from './feedback-options.module.css';
 
 const FeedbackOptions = ({ addVote }) => {
@@ -17,3 +18,7 @@ const FeedbackOptions = ({ addVote }) => {
 };
 
 export default FeedbackOptions;
+
+FeedbackOptions.propTypes = {
+  addVote: PropTypes.func.isRequired,
+};

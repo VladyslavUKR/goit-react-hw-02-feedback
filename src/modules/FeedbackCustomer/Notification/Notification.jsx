@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import css from './nitofication.module.css';
 
 const Notification = ({ tittle }) => {
@@ -5,3 +6,7 @@ const Notification = ({ tittle }) => {
 };
 
 export default Notification;
+
+Notification.propTypes = {
+  tittle: PropTypes.string.isRequired,
+};
