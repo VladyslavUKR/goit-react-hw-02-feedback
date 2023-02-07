@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import css from './section.module.css';
 
 const Section = ({ children, tittle, text, totalResultFeedback }) => {
@@ -14,3 +15,10 @@ const Section = ({ children, tittle, text, totalResultFeedback }) => {
 };
 
 export default Section;
+
+Section.propTypes = {
+  children: PropTypes.array.isRequired,
+  tittle: PropTypes.string.isRequired,
+  text: PropTypes.string.isRequired,
+  totalResultFeedback: PropTypes.number.isRequired,
+};

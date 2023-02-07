@@ -38,20 +38,11 @@ class FeedbackCustomer extends Component {
   };
 
   render() {
+    const arrayOptionBtn = Object.keys(this.state);
     const { good, neutral, bad } = this.state;
     const totalResultFeedback = this.calcTotalResultFeedback();
     const PositiveResultPercentage =
       this.countPositiveFeedbackPercentage('good');
-    const hideSection = totalResultFeedback ? (
-      <Statistic
-        good={good}
-        neutral={neutral}
-        bad={bad}
-        PositiveResultPercentage={PositiveResultPercentage}
-      />
-    ) : (
-      <Notification tittle={'There is no feedback'} />
-    );
 
     return (
       <>
@@ -60,8 +51,17 @@ class FeedbackCustomer extends Component {
           text={'The total number of people who passed the survey:'}
           totalResultFeedback={totalResultFeedback}
         >
-          <FeedbackOptions addVote={this.addVote} />
-          {hideSection}
+          <FeedbackOptions addVote={this.addVote} option={arrayOptionBtn} />
+          {totalResultFeedback ? (
+            <Statistic
+              good={good}
+              neutral={neutral}
+              bad={bad}
+              PositiveResultPercentage={PositiveResultPercentage}
+            />
+          ) : (
+            <Notification tittle={'There is no feedback'} />
+          )}
         </Section>
       </>
     );
